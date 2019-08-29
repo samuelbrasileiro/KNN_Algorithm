@@ -56,29 +56,29 @@ readDataset(dataset).then(function(data){
         for(i in pontos){
             distancias.push(takeDist(novousuario,pontos[i]));
         }
-        console.log(distancias);
+        
         
         var distSorted = [... distancias];
         distSorted.sort((a,b)=>{
             return a-b
         })
-        console.log(distSorted)
+        
         var resultado = 0;
         for(var i = 0; i < k; i++){
             var menorCara = distSorted[i];
-            console.log(menorCara)
-            resultado = resultado + parseFloat(pontos[distancias.indexOf(menorCara)].copaNova);
+
             
+            resultado = resultado + parseFloat(pontos[distancias.indexOf(menorCara)].copaNova);
         }
         
-        sresultado = resultado / k;
+        resultado = resultado / k;
         
         return(resultado);
     }
 
 
-    var userTeste = new Pessoa ("Luis", 10, 10, 10, 10);
-    var resut = KNNNovaCopa(userTeste, 2);
+    var userTeste = new Pessoa ("Luis", 5.4, 6.4, 5.6, 5.6);
+    var resut = KNNNovaCopa(userTeste, 4);
     console.log(resut);
    
 });
